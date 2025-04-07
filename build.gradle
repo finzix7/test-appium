@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.appium.framework'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Appium Java Client
+    implementation 'io.appium:java-client:9.4.0'
+
+    implementation 'org.seleniumhq.selenium:selenium-java:4.28.1'
+
+    // Cucumber para BDD
+    implementation 'io.cucumber:cucumber-java:7.11.0'
+    implementation 'io.cucumber:cucumber-testng:7.11.0'
+
+    // TestNG para ejecutar los tests
+    testImplementation 'org.testng:testng:7.7.0'
+
+    // Log4j para logging
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+
+    // Extent Reports para reportes avanzados (opcional)
+    implementation 'com.aventstack:extentreports:5.0.9'
+}
+
+test {
+    useTestNG()
+    options {
+        suites 'src/test/resources/testng.xml'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
