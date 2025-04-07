@@ -38,6 +38,9 @@ bin/
 ### VS Code ###
 .vscode/
 
+## intelliJ
+.idea
+
 ### Mac OS ###
 .DS_Store
 # Ignore Gradle build output directory
